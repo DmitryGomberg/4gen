@@ -1,22 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Django: добавить {% load static %} в начале шаблона -->
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>4gen - hero</title>
+  <!-- Django: используем {% static %} для подключения шрифтов -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Django: <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
   <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Описание страницы сайта." />
 </head>
 <body>
-  <header class="header">
+  <header class="header animate-slide-down">
     <div class="header__container">
       <div class="header__logo">
+        <!-- Django: <a href="{% url 'home' %}"> -->
         <a href="">
-          <img src="./images/logo.png" alt="Image">
+          <!-- Django: <img src="{% static 'images/logo.png' %}" alt="logo"> -->
+          <img src="./images/logo.png" alt="logo">
         </a>
       </div>
       <nav class="header__nav">
         <ul>
+          <!-- Django: <li><a href="{% url 'home' %}">Главная</a></li> и т.д. -->
           <li><a href="">Главная</a></li>
           <li><a href="">Цены</a></li>
           <li><a href="">Контакты</a></li>
@@ -24,14 +31,23 @@
         </ul>
       </nav>
       <div class="header__auth">
+        <!-- Django: <a href="{% url 'register' %}" class="header__auth-link">Регистрация</a> -->
         <a href="" class="header__auth-link">Регистрация</a>
+        <!-- Django: <a href="{% url 'login' %}" class="header__auth-link">Авторизация</a> -->
         <a href="" class="header__auth-link">Авторизация</a>
       </div>
       <div class="header__btn">
         <button class="btn">Начать бесплатно</button>
       </div>
+      <button class="header__burger" aria-label="Открыть меню">
+        <span></span>
+      </button>
     </div>
   </header>
+  <div class="mobile-menu">
+    <button class="mobile-menu__close" aria-label="Закрыть меню">&times;</button>
+  </div>
+  <div class="mobile-menu__overlay"></div>
   <main>
     <section class="hero">
       <div class="hero__container">
@@ -43,45 +59,50 @@
           </ul>
         </div>
         <div class="hero__main">
-          <div class="hero__content">
+          <div class="hero__content animate-slide">
             <ul class="hero__tags">
+              <!-- Django: <img src="{% static 'images/tag1.svg' %}" alt="tagImage"> -->
               <li class="hero__tag tag">
-                <img src="images/tag1.svg" alt="Image">
+                <img src="images/tag1.svg" alt="tagImage">
                 1M
-              </li> 
+              </li>
               <li class="hero__tag tag">
-                <img src="images/tag2.svg" alt="Image">
+                <img src="images/tag2.svg" alt="tagImage">
                 0.65
-              </li> 
+              </li>
               <li class="hero__tag tag">
-                <img src="images/tag3.svg" alt="Image">
+                <img src="images/tag3.svg" alt="tagImage">
                 3.9
-              </li> 
+              </li>
               <li class="hero__tag tag">
-                <img src="images/tag4.svg" alt="Image">
+                <img src="images/tag4.svg" alt="tagImage">
                 Chat
-              </li> 
+              </li>
               <li class="hero__tag tag">
-                <img src="images/tag5.svg" alt="Image">
+                <img src="images/tag5.svg" alt="tagImage">
                 Active
-              </li> 
+              </li>
             </ul>
-            <h1 class="hero__title"></h1>
-            <p class="hero__description"></p>
+            <h1 class="hero__title">Gemini 3 Flash</h1>
+            <p class="hero__description"><span>Генерация контента через нейросети <br>1</span>
+              Создавайте тексты, карточки товаров, SEO-материалы,<br> переводы и отзывы за считанные минуты.</p>
             <div class="hero__button">
               <button class="btn">
                 Попробовать бесплатно
-                <img src="images/arrow-right.svg" alt="Image">
+                <!-- Django: <img src="{% static 'images/arrow-right.svg' %}" alt="arrowImage"> -->
+                <img src="images/arrow-right.svg" alt="arrowImage">
               </button>
             </div>
           </div>
-          <div class="hero__expample">
-            <img src="/images/code.png" alt="Image">
+          <div class="hero__expample animate-scale">
+            <!-- Django: <img src="{% static 'images/code.png' %}" alt="codeSection"> -->
+            <img src="/images/code.png" alt="codeSection">
           </div>
         </div>
       </div>
     </section>
   </main>
-  <footer></footer>
+  <!-- Django: <script src="{% static 'js/script.js' %}"></script> -->
+  <script src="script.js"></script>
 </body>
 </html>
